@@ -8,10 +8,10 @@
 */
 
 #include <Servo.h>
-#define numpot 3
+#define numpot 4
 #define servo_start 8
 
-Servo myservo[3];  // create servo object to control a servo
+Servo myservo[numpot];  // create servo object to control a servo
 
 int potpin = 0;  // analog pin used to connect the potentiometer
 int analog_val[numpot], servo_val[numpot];    // variable to read the value from the analog pin
@@ -31,15 +31,15 @@ void loop() {
     analog_val[cntr] = analogRead(cntr);            // reads the value of the potentiometer (value between 0 and 1023)
     servo_val[cntr] = map(analog_val[cntr], 0, 1023, 0, 180);     // scale it to use it with the servo (value between 0 and 180)
     myservo[cntr].write(servo_val[cntr]);                  // sets the servo position according to the scaled value
-    Serial.print("cntr : ");
-    Serial.print(cntr);
-    Serial.print("| analog_val : ");
-    Serial.print(analog_val[cntr]);
-    Serial.print("| servo_val :");
-    Serial.print(servo_val[cntr]);
-    Serial.print(" >> ");
-    delay(15);                           // waits for the servo to get there
+    //    Serial.print("cntr : ");
+    //    Serial.print(cntr);
+    //    Serial.print("| analog_val : ");
+    //    Serial.print(analog_val[cntr]);
+    //    Serial.print("| servo_val :");
+    //    Serial.print(servo_val[cntr]);
+    //    Serial.print(" >> ");
+    //    delay(15);                           // waits for the servo to get there
   }
-  Serial.println("");
+  //Serial.println("");
 }
 
